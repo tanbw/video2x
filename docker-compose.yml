@@ -22,4 +22,3 @@ services:
               count: all
               capabilities: [gpu]
     restart: unless-stopped
-    command: ["sleep", "infinity"]
