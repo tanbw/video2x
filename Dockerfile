@@ -1,7 +1,6 @@
 FROM ghcr.nju.edu.cn/k4yt3x/video2x:6.4.0
 
 # 设置环境变量
-ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PYTHONUNBUFFERED=1
 # 如果你希望 pip 也使用中科大的源，可以设置这个环境变量
 ENV PIP_INDEX_URL=https://pypi.mirrors.ustc.edu.cn/simple/ 
@@ -10,11 +9,9 @@ ENV PIP_INDEX_URL=https://pypi.mirrors.ustc.edu.cn/simple/
 # 确保安装了 python-venv (Arch 中通常是 python 包的一部分，但明确指定更安全)
 # 安装 git, base-devel, curl, wget, unzip, vulkan-tools, nvidia-utils
 RUN echo 'Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist && \
-    pacman -Syu --noconfirm --needed && \
+    pacman -Sy --noconfirm && \
     pacman -S --noconfirm --needed \
-        git base-devel curl wget unzip \
-        python python-pip which \ 
-        vulkan-tools nvidia-utils && \
+        python python-pip && \
     # 清理缓存以减少镜像大小
     pacman -Scc --noconfirm
 
