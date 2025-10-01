@@ -1,5 +1,5 @@
-FROM ghcr.nju.edu.cn/k4yt3x/video2x:6.4.0
-
+#FROM ghcr.nju.edu.cn/k4yt3x/video2x:6.4.0
+FROM ghcr.io/k4yt3x/video2x:6.4.0
 # 设置环境变量
 ENV PYTHONUNBUFFERED=1
 # 如果你希望 pip 也使用中科大的源，可以设置这个环境变量
